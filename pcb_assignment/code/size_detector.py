@@ -10,12 +10,12 @@
 
 
 
-
 import numpy as np
 import math
 import cv2
 
 image = cv2.imread('pcb1000.png')
+scaling_factor = 0.0169
 
 
 
@@ -47,7 +47,7 @@ def calculate(img):
 
             radius_in_pixels= math.sqrt(area_in_pixels/math.pi)
             #So it says that every 1 px it is 0.0169 cm
-            radius_in_cm = 0.0169 * radius_in_pixels
+            radius_in_cm = scaling_factor * radius_in_pixels
 
             print("Spacer Holes #{} has radius = {}".format(index,radius_in_cm))
     cv2.imshow('Image', img)
